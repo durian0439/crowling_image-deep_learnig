@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 from konlpy.tag import Kkma
 from konlpy.tag import Okt
-from wordcloud import WordCloud, STOPWORDS
+from wordcloud import WordCloud
 import nltk
+import jpype
 import streamlit as st
 
 def main():
@@ -45,7 +46,7 @@ def main():
 
     data = dict(data)
 
-    font = '/usr/share/fonts/truetype/nanum/NanumGothicEco.ttf'
+    font = 'C:\Windows\Fonts\HMFMPYUN.ttf'
     wc = WordCloud(font_path=font,\
             background_color="white", \
             width=1000, \
@@ -56,7 +57,7 @@ def main():
 
 
     fig = plt.figure()  # 스트림릿에서 plot그리기
-    plt.figure(figsize=(10,10))
+    plt.figure(figsize=(15,15))
     plt.imshow(wc, interpolation='bilinear')
     plt.axis('off')
     st.pyplot(fig)
