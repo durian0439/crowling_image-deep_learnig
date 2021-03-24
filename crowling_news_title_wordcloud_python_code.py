@@ -83,6 +83,7 @@ filtered_title
 wordcloud = WordCloud().generate(filtered_title)
 
 font = '/usr/share/fonts/truetype/nanum/NanumGothicEco.ttf'
+#코랩의 리눅스 환경에서  폰트를 사용할 수 있도록 지정
 
 wc = WordCloud(font_path=font,\
 		background_color="white", \
