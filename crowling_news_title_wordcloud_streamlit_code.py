@@ -22,7 +22,7 @@ def main():
     crowled_title = []
     for i in range(len(news_titles)):
         crowled_title.append(news_titles[i].text)
-
+    # st.write(crowled_title)
 
 
     title = "".join(crowled_title)
@@ -32,8 +32,6 @@ def main():
     tokens_ko = tw.nouns(filtered_title)
 
     ko = nltk.Text(tokens_ko, name='기사 내 명사')
-    ko.tokens
-    ko.vocab()
 
     new_ko=[]
     for word in ko:
@@ -56,11 +54,14 @@ def main():
     wc = wc.generate_from_frequencies(data)
 
 
+
     fig = plt.figure()  # 스트림릿에서 plot그리기
-    plt.figure(figsize=(15,15))
+    plt.title(date +' '+ 'KeyWords')
     plt.imshow(wc, interpolation='bilinear')
     plt.axis('off')
+    plt.show()
     st.pyplot(fig)
+
 
 
 
