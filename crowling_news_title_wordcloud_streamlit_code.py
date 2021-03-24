@@ -1,12 +1,10 @@
 import requests
-import pandas as pd
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 from konlpy.tag import Kkma
 from konlpy.tag import Okt
 from wordcloud import WordCloud
 import nltk
-import jpype
 import streamlit as st
 
 def main():
