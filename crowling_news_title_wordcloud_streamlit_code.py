@@ -1,10 +1,9 @@
 import requests
-import pandas as pd
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 from konlpy.tag import Kkma
 from konlpy.tag import Okt
-from wordcloud import WordCloud, STOPWORDS
+from wordcloud import WordCloud
 import nltk
 import streamlit as st
 
@@ -21,7 +20,7 @@ def main():
     crowled_title = []
     for i in range(len(news_titles)):
         crowled_title.append(news_titles[i].text)
-
+    # st.write(crowled_title)
 
 
     title = "".join(crowled_title)
@@ -31,8 +30,6 @@ def main():
     tokens_ko = tw.nouns(filtered_title)
 
     ko = nltk.Text(tokens_ko, name='기사 내 명사')
-    ko.tokens
-    ko.vocab()
 
     new_ko=[]
     for word in ko:
@@ -45,7 +42,7 @@ def main():
 
     data = dict(data)
 
-    font = '/usr/share/fonts/truetype/nanum/NanumGothicEco.ttf'
+    font = 'C:\Windows\Fonts\HMFMPYUN.ttf' #이 친구는 코랩과는 다르다 ㅋㅋㅋㅋ
     wc = WordCloud(font_path=font,\
             background_color="white", \
             width=1000, \
@@ -55,15 +52,17 @@ def main():
     wc = wc.generate_from_frequencies(data)
 
 
+
     fig = plt.figure()  # 스트림릿에서 plot그리기
-    plt.figure(figsize=(10,10))
+    plt.title(date +' '+ 'KeyWords')
     plt.imshow(wc, interpolation='bilinear')
     plt.axis('off')
+    plt.show()
     st.pyplot(fig)
+
 
 
 
 
 if __name__ == '__main__':
     main()
-
